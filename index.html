@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crop and Fertilizer Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Crop and Fertilizer Prediction</h1>
+    <form action="/predict" method="post">
+      <label for="soil_color">Soil Color:</label>
+      <input type="text" id="soil_color" name="soil_color" required><br><br>
+
+      <label for="nitrogen">Nitrogen Level:</label>
+      <input type="number" id="nitrogen" name="nitrogen" step="0.01" required><br><br>
+
+      <label for="phosphorus">Phosphorus Level:</label>
+      <input type="number" id="phosphorus" name="phosphorus" step="0.01" required><br><br>
+
+      <label for="potassium">Potassium Level:</label>
+      <input type="number" id="potassium" name="potassium" step="0.01" required><br><br>
+
+      <label for="pH">pH:</label>
+      <input type="number" id="pH" name="pH" step="0.01" required><br><br>
+
+      <label for="temperature">Temperature:</label>
+      <input type="number" id="temperature" name="temperature" step="0.01" required><br><br>
+
+      <input type="submit" value="Predict">
+    </form>
+
+    {% if crop %}
+      <h2>Prediction Results:</h2>
+      <p>Suggested Crop: {{ crop }}</p>
+    {% endif %}
+  </div>
+</body>
+</html>
