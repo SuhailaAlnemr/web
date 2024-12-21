@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from finalproject import soil , crops , fertilizers
+from finalproject import soil , crops
 import pandas as pd
 import joblib
 
