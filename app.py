@@ -15,7 +15,7 @@ def index():
 def predict():
     # Load the trained models
     crop_model = joblib.load('crop_model.pkl')
-    fertilizer_model = joblib.load('fertilizer_model.pkl')
+    #fertilizer_model = joblib.load('fertilizer_model.pkl')
 
     # Get user input values
     soil_color = request.form['soil_color']
@@ -41,11 +41,11 @@ def predict():
     user_input['Soil_color'] = soil(user_input['Soil_color'][0])
     predicted_crop = crop_model.predict(user_input)[0]
     user_input['Crop'] = [predicted_crop]
-    predicted_fertilizer = fertilizer_model.predict(user_input)[0]
+    #predicted_fertilizer = fertilizer_model.predict(user_input)[0]
     predicted_crop = crops(predicted_crop)
-    predicted_fertilizer = fertilizers(predicted_fertilizer)
+    #predicted_fertilizer = fertilizers(predicted_fertilizer)
 
-    return render_template('index.html', crop=predicted_crop, fertilizer=predicted_fertilizer)
+    return render_template('index.html', crop=predicted_crop) #, fertilizer=predicted_fertilizer)
 
 if __name__ == '__main__':
     app.run(debug=True)
